@@ -3,7 +3,7 @@ This bot is written for people to easily manage their Project Zomboid server usi
 
 <br>
 
-<img alt="No Longer Maintained" src="https://img.shields.io/badge/maintenance-no_longer_maintained-red.svg" title="The bot is no longer maintained." /><br>
+<img alt="Revaluating Maintenance" src="https://img.shields.io/badge/maintenance-revaluation-yellow.svg" title="The bot will probably be maintained again." /><br>
 *The bot is no longer maintained.*
 
 ## Contents
