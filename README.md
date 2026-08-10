@@ -1,6 +1,8 @@
 # Project Zomboid Discord Bot for Server Management
 This bot is written for people to easily manage their Project Zomboid server using Discord. Please check the **Installation** and **Bot Configuration** section. Also, this bot doesn't support multiple Discord servers and only works on the **Windows** operating system. Be sure to have **.NET Framework 4.7.2** installed on the machine.
 
+This is a fork of https://github.com/egebilecen/PZServerDiscordBot
+
 <br>
 
 <img alt="Revaluating Maintenance" src="https://img.shields.io/badge/maintenance-revaluation-yellow.svg" title="The bot will probably be maintained again." /><br>
