@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-
 using AnnouncementIntervalList = System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, bool>>;
 
 public static partial class Schedules
@@ -9,16 +7,16 @@ public static partial class Schedules
 
     public static void ServerRestartAnnouncer(List<object> args)
     {
-        if(!ServerUtility.IsServerRunning()) return;
+        if (!ServerUtility.IsServerRunning()) return;
 
-        if(Application.BotSettings.ServerScheduleSettings.ServerRestartScheduleType.ToLower() == "time"
+        if (Application.BotSettings.ServerScheduleSettings.ServerRestartScheduleType.ToLower() == "time"
         && ServerUtility.AbortNextTimedServerRestart)
             return;
 
         ScheduleItem serverRestartSchedule = Scheduler.GetItem("ServerRestart");
         ScheduleItem self = Scheduler.GetItem("ServerRestartAnnouncer");
 
-        if(args == null)
+        if (args == null)
         {
             // If bool value is true then announcement is done
             args = new List<object>{
@@ -35,7 +33,7 @@ public static partial class Schedules
             self.Args = args;
         }
 
-        if(serverRestartSchedule == null)
+        if (serverRestartSchedule == null)
         {
             Logger.WriteLog("[Server Restart Announcer Schedule] serverRebootSchedule is null.");
             return;
@@ -45,9 +43,9 @@ public static partial class Schedules
         double timeDiffMinutes = serverRestartSchedule.NextExecuteTime.Subtract(now).TotalMinutes;
 
         AnnouncementIntervalList intervalList = args[0] as AnnouncementIntervalList;
-        int index = intervalList.FindIndex(x => (timeDiffMinutes <= x.Key && timeDiffMinutes >= Convert.ToDouble(x.Key) - 0.5) 
+        int index = intervalList.FindIndex(x => (timeDiffMinutes <= x.Key && timeDiffMinutes >= Convert.ToDouble(x.Key) - 0.5)
                                                  && !x.Value);
-        if(index == -1) return;
+        if (index == -1) return;
 
         var announcementPair = intervalList[index];
         var publicChannel = DiscordUtility.GetTextChannelById(Application.BotSettings.PublicChannelId);
@@ -55,7 +53,7 @@ public static partial class Schedules
         string message = Localization
             .Get("sch_serverrestartannouncer_text")
             .KeyFormat(
-                ("time_value", announcementPair.Key >= 60 ? announcementPair.Key / 60 : announcementPair.Key), 
+                ("time_value", announcementPair.Key >= 60 ? announcementPair.Key / 60 : announcementPair.Key),
                 ("time_text", announcementPair.Key >= 60 ? Localization.Get("gen_hours_text") : Localization.Get("gen_minutes_text"))
             );
 
