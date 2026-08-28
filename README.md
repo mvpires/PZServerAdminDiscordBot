@@ -6,7 +6,7 @@ This is a fork of https://github.com/egebilecen/PZServerDiscordBot
 <br>
 
 <img alt="Revaluating Maintenance" src="https://img.shields.io/badge/maintenance-revaluation-yellow.svg" title="The bot will probably be maintained again." /><br>
-*The bot is being revaluated. I plan to port it to JavaScript (No AI) and make it available on other operating systems*
+*The bot is being revaluated. I plan to updated it and make it available on other operating systems*
 
 ## Contents
 * [Features](#features)
